@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <main
-      className="fixed inset-0 overflow-hidden"
+      className="fixed inset-0 overflow-y-auto"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
     >
       <AnimatePresence mode="wait">
