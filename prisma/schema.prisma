@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+}
+
+model Order {
+  id          String      @id @default(cuid())
+  userId      String
+  status      String      @default("pending") // pending, confirmed, in_progress, completed, cancelled
+  totalAmount Int         // in UAH (копійки як ціле число)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  user        User        @relation(fields: [userId], references: [id])
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  orderId     String
+  iphoneModel String  // e.g. "iPhone 15"
+  service     String  // e.g. "Замена экрана"
+  quality     String  // "copy" or "original"
+  price       Int     // in UAH
+  description String  @default("описание описание описание....")
+  order       Order   @relation(fields: [orderId], references: [id])
+}
