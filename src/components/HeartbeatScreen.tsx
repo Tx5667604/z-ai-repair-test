@@ -89,8 +89,8 @@ export default function HeartbeatScreen() {
   const showProgress = phase === 'progress'
 
   return (
-    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center overflow-hidden">
-      <div className="relative flex items-center justify-center" style={{ width: 200, height: 200 }}>
+    <div className="fixed inset-0 bg-white flex flex-col items-center justify-center overflow-hidden">
+      <div className="relative flex items-center justify-center" style={{ width: 500, height: 500 }}>
         {/* Blue glow */}
         <AnimatePresence>
           {showGlow && (
@@ -101,10 +101,10 @@ export default function HeartbeatScreen() {
               transition={{ duration: 1, ease: 'easeOut' }}
               className="absolute"
               style={{
-                width: 300,
-                height: 300,
+                width: 1000,
+                height: 1000,
                 background:
-                  'radial-gradient(circle, rgba(0,122,255,0.5) 0%, rgba(0,122,255,0.15) 40%, transparent 70%)',
+                  'radial-gradient(circle, rgba(0,122,255,0.3) 0%, rgba(0,122,255,0.08) 40%, transparent 70%)',
                 borderRadius: '50%',
               }}
             />
@@ -120,8 +120,8 @@ export default function HeartbeatScreen() {
           <Image
             src="/logo.png"
             alt="Apple Logo"
-            width={80}
-            height={80}
+            width={400}
+            height={400}
             className="object-contain"
             priority
           />
@@ -138,7 +138,7 @@ export default function HeartbeatScreen() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center w-64 mt-10"
           >
-            <div className="w-full h-[4px] bg-white/20 rounded-full overflow-hidden">
+            <div className="w-full h-[4px] bg-black/10 rounded-full overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{
@@ -152,7 +152,7 @@ export default function HeartbeatScreen() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 text-white/70 text-sm tracking-wide"
+              className="mt-4 text-black/60 text-sm tracking-wide"
               style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
             >
               Восстановление...
